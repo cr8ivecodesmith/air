@@ -25,6 +25,40 @@ class A(BaseTag):
         id: DOM ID attribute.
         style: Inline style attribute.
         kwargs: Keyword arguments transformed into tag attributes.
+
+    Example:
+        Simplest implementation:
+        ```python
+        from air.tags import A, Textarea
+
+
+        @app.page
+        def index():
+            link = A(href="https://abc.xyz")
+            return air.layouts.mvpcss(
+                link,
+            )
+
+            return
+        ```
+
+        Custom link styling:
+        ```python
+        from air.tags import A, Textarea
+
+        style = "class test {a:underline = None};"
+
+
+        @app.page
+        def index():
+            link = A(href="https://abc.xyz", class_=style)
+            return air.layouts.mvpcss(
+                link,
+            )
+
+            return
+        ```
+
     """
 
     def __init__(
